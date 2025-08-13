@@ -18,7 +18,7 @@ server:
 
 data:
   local_ingestion:
-    enabled: ${LOCAL_INGESTION_ENABLED:false}
+    enabled: ${LOCAL_INGESTION_ENABLED:true}
     allow_ingest_from: ["*"]
   local_data_folder: local_data/private_gpt
 
@@ -47,14 +47,14 @@ ui:
   delete_all_files_button_enabled: true
 
 llm:
-  mode: llamacpp
-  prompt_style: "llama3"
+  mode: ollama
+  #prompt_style: "llama3"
   # Should be matching the selected model
-  max_new_tokens: 512
-  context_window: 3900
+  #max_new_tokens: 512
+  #context_window: 3900
   # Select your tokenizer. Llama-index tokenizer is the default.
   # tokenizer: meta-llama/Meta-Llama-3.1-8B-Instruct
-  temperature: 0.1      # The temperature of the model. Increasing the temperature will make the model answer more creatively. A value of 0.1 would be more factual. (Default: 0.1)
+  #temperature: 0.1      # The temperature of the model. Increasing the temperature will make the model answer more creatively. A value of 0.1 would be more factual. (Default: 0.1)
 
 rag:
   similarity_top_k: 2
@@ -129,7 +129,7 @@ openai:
   embedding_api_key: ${OPENAI_API_KEY:}
 
 ollama:
-  llm_model: llama3.1
+  llm_model: deepseek-r1
   embedding_model: nomic-embed-text
   api_base: http://localhost:11434
   embedding_api_base: http://localhost:11434  # change if your embedding model runs on another ollama
